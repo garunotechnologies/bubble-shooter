@@ -1,0 +1,183 @@
+@mixin ratio {
+  width: 100%;
+  background-color: transparent;
+  display: block;
+  float: left;
+}
+
+@mixin calcWidth($percent, $more) {
+  position: relative;
+  width: calc(#{$percent} + #{$more});
+  left: -($more / 2);
+}
+@mixin clearfix {
+  &:before,
+  &:after {
+    content: '';
+    clear: both;
+    display: table;
+  }
+}
+
+@mixin opacity($percent) {
+  opacity: $percent;
+  -moz-opacity: $percent;
+  filter: alpha(opacity=$percent);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=" + $percent + ")";
+}
+
+@mixin user-select($select: '') {
+  @if ($select == '') {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  } @else if($select == true) {
+    -webkit-user-select: auto;
+    -khtml-user-select: auto;
+    -moz-user-select: auto;
+    -ms-user-select: auto;
+    user-select: auto;
+  }
+}
+
+@mixin alignCenter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+@mixin center($horizontal: true, $vertical: true) {
+  position: absolute;
+  @if ($horizontal and $vertical) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } @else if ($horizontal) {
+    left: 50%;
+    transform: translate(-50%, 0);
+  } @else if ($vertical) {
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+}
+
+@mixin transition($transition...) {
+  -webkit-transition: $transition;
+  -moz-transition: $transition;
+  -ms-transition: $transition;
+  -o-transition: $transition;
+  transition: $transition;
+}
+@mixin transform($transform...) {
+  -webkit-transform: $transform;
+  -moz-transform: $transform;
+  -ms-transform: $transform;
+  -o-transform: $transform;
+  transform: $transform;
+}
+@mixin animation($animate...) {
+  $max: length($animate);
+  $animations: '';
+
+  @for $i from 1 through $max {
+    $animations: #{$animations + nth($animate, $i)};
+
+    @if $i < $max {
+      $animations: #{$animations + ", "};
+    }
+  }
+
+  -webkit-animation: $animations;
+  -moz-animation:    $animations;
+  -ms-animation:     $animations;
+  -o-animation:      $animations;
+  animation:         $animations;
+}
+@mixin perspective($perspective...) {
+  -webkit-perspective:      $perspective;
+  -o-perspective:           $perspective;
+  -moz-perspective:         $perspective;
+  -ms-perspective:          $perspective;
+  perspective:              $perspective;
+}
+@mixin transform-origin($position...) {
+  -webkit-transform-origin:    $position;
+  -moz-transform-origin:       $position;
+  -o-transform-origin:         $position;
+  transform-origin:            $position;
+}
+@mixin transition-property($property...) {
+  -moz-transition-property:    $property;
+  -o-transition-property:      $property;
+  -webkit-transition-property: $property;
+  transition-property:         $property;
+}
+@mixin transition-duration($duration...) {
+  -moz-transition-duration:    $duration;
+  -o-transition-duration:      $duration;
+  -webkit-transition-duration: $duration;
+  transition-duration:         $duration;
+}
+@mixin transition-timing-function($timing...) {
+  -moz-transition-timing-function:    $timing;
+  -o-transition-timing-function:      $timing;
+  -webkit-transition-timing-function: $timing;
+  transition-timing-function:         $timing;
+}
+@mixin transition-delay($delay...) {
+  -moz-transition-delay:    $delay;
+  -o-transition-delay:      $delay;
+  -webkit-transition-delay: $delay;
+  transition-delay:         $delay;
+}
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@mixin background-gradient($top, $start-colour, $end-colour...) {
+  background-color: $start-colour;
+  background-image: -webkit-gradient(linear, left top, left bottom, from($start-colour), to($end-colour));
+  background-image: -webkit-linear-gradient($top, $start-colour, $end-colour);
+  background-image:    -moz-linear-gradient($top, $start-colour, $end-colour);
+  background-image:     -ms-linear-gradient($top, $start-colour, $end-colour);
+  background-image:      -o-linear-gradient($top, $start-colour, $end-colour);
+  background-image:         linear-gradient($top, $start-colour, $end-colour);
+  filter:            progid:DXImageTransform.Microsoft.gradient(start-colourStr='#{$start-colour}', end-colourStr='#{$end-colour}');
+}
+@mixin background-horizontal($top, $start-colour, $end-colour...) {
+  background-color: $start-colour;
+  background-image: -webkit-gradient(linear, left top, right top, from($start-colour), to($end-colour));
+  background-image: -webkit-linear-gradient($top, $start-colour, $end-colour);
+  background-image:    -moz-linear-gradient($top, $start-colour, $end-colour);
+  background-image:     -ms-linear-gradient($top, $start-colour, $end-colour);
+  background-image:      -o-linear-gradient($top, $start-colour, $end-colour);
+  background-image:         linear-gradient($top, $start-colour, $end-colour);
+  filter:            progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$start-colour}', endColorStr='#{$end-colour}', gradientType='1');
+}
+@mixin background-radial($startColor: #FFFFFF, $startPos: 0%, $endColor: #000000, $endPos:100%) {
+  background: -moz-radial-gradient(center, ellipse cover, $startColor $startPos, $endColor $endPos);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop($startPos,$startColor), color-stop($endPos,$endColor));
+  background: -webkit-radial-gradient(center, ellipse cover, $startColor $startPos,$endColor $endPos);
+  background: -o-radial-gradient(center, ellipse cover, $startColor $startPos,$endColor $endPos);
+  background: -ms-radial-gradient(center, ellipse cover, $startColor $startPos,$endColor $endPos);
+  background: radial-gradient(ellipse at center, $startColor $startPos,$endColor $endPos);
+}

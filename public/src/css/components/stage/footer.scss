@@ -1,0 +1,36 @@
+$bg_color: #2d2d2d;
+
+.cf_clearfix {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+}
+//cf_clearfix
+
+.footer {
+  position: relative;
+  background-color: $bg_color;
+  padding: 0 10px;
+
+  .development {
+    padding: 30px 0 25px;
+    a {
+      color: rgba(255,255,255, .9);
+    }
+
+    .design {
+      font-size: 12px;
+      color: rgba(255,255,255, .7);
+      margin-bottom: 7px;
+    }
+    //design
+
+    .poweredByQuickBuy {
+      font-size: 12px;
+      color: rgba(255,255,255, .7);
+    }
+    //poweredByQuickBuy
+  }
+  //development
+}
+//footer

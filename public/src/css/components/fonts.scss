@@ -1,0 +1,53 @@
+@font-face {
+  font-family: 'Montserrat-Light';
+  src: url('/fonts/montserrat/Montserrat-Light.ttf');
+}
+@font-face {
+  font-family: 'Montserrat-Regular';
+  src: url('/fonts/montserrat/Montserrat-Regular.ttf');
+}
+@font-face {
+  font-family: 'Montserrat-Italic';
+  src: url('/fonts/montserrat/Montserrat-Italic.ttf');
+}
+@font-face {
+  font-family: 'Montserrat-Medium';
+  src: url('/fonts/montserrat/Montserrat-Medium.ttf');
+}
+@font-face {
+  font-family: 'Montserrat-SemiBold';
+  src: url('/fonts/montserrat/Montserrat-SemiBold.ttf');
+}
+@font-face {
+  font-family: 'Montserrat-SemiBoldItalic';
+  src: url('/fonts/montserrat/Montserrat-SemiBold.ttf');
+}
+@font-face {
+  font-family: 'Montserrat-Bold';
+  src: url('/fonts/montserrat/Montserrat-Bold.ttf');
+}
+
+@mixin openSans {
+  font-family: 'Open Sans', sans-serif;
+}
+@mixin montserratLight {
+  font-family: 'Montserrat-Light', sans-serif;
+}
+@mixin montserratRegular {
+  font-family: 'Montserrat-Regular', sans-serif;
+}
+@mixin montserratItalic {
+  font-family: 'Montserrat-Italic', sans-serif;
+}
+@mixin montserratMedium {
+  font-family: 'Montserrat-Medium', sans-serif;
+}
+@mixin montserratSemiBold {
+  font-family: 'Montserrat-SemiBold', sans-serif;
+}
+@mixin montserratSemiBoldItalic {
+  font-family: 'Montserrat-SemiBoldItalic', sans-serif;
+}
+@mixin montserratBold {
+  font-family: 'Montserrat-Bold', sans-serif;
+}

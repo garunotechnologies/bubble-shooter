@@ -1,0 +1,258 @@
+body.hidden-scroll {
+  overflow: hidden;
+}
+.sl-overlay {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 1);
+  display: none;
+  z-index: 1006;
+}
+.sl-wrapper {
+  z-index: 1000;
+  button {
+    border: 0 none;
+    background: transparent;
+    font-size: 24px;
+    padding: 0;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  .sl-close,
+  .sl-counter {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    font-size: 16px;
+    font-weight: lighter;
+    color: #000000;
+    z-index: 1015;
+    display: none;
+  }
+
+  .sl-close {
+    font-size: 25px;
+    line-height: 16px;
+    left: auto;
+    right: 30px;
+    width: 30px;
+    height: 30px;
+    fill: rgba(0, 0, 0, .5);
+    stroke: #000000;
+    stroke-width: 0;
+    @include transition(all 0.3s ease);
+    cursor: pointer;
+    &:hover {
+      fill: rgba(0, 0, 0, 1);
+    }
+  }
+  //sl-close
+
+  .sl-navigation {
+    width: 100%;
+    display: none;
+    button {
+      @include center(false, true);
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      border-radius: 50px;
+      display: inline-block;
+      cursor: pointer;
+      z-index: 99999;
+      outline: none;
+      @include transition(all .3s ease);
+
+      &:before {
+        content: '';
+        @include alignCenter;
+        width: 40px;
+        height: 40px;
+      }
+      &.sl-prev {
+        left: 40px;
+        &:before {
+          content: '';
+          left: 8px;
+          border-top: 2px solid rgba(0, 0, 0, .5);
+          border-left: 2px solid rgba(0, 0, 0, .5);
+          @include transform(rotate(-45deg));
+        }
+      }
+      &.sl-next {
+        right: 40px;
+        &:before {
+          content: '';
+          right: 8px;
+          border-right: 2px solid rgba(0, 0, 0, .5);
+          border-bottom: 2px solid rgba(0, 0, 0, .5);
+          @include transform(rotate(-45deg));
+        }
+      }
+      &:hover {
+        &:before {
+          border-color: rgba(0, 0, 0, 1);
+        }
+      }
+    }
+    //arrow
+  }
+  
+  .sl-image {
+    position: fixed;
+    -ms-touch-action: none;
+    touch-action: none;
+    z-index: 10000;
+    img {
+      margin: 0;
+      padding: 0;
+      display: block;
+    }
+    iframe {
+      border: 0 none;
+      background: #000;
+    }
+    .sl-caption {
+      display: none;
+      padding: 10px;
+      color: #fff;
+      background: #000;
+      opacity: 0.8;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      
+      &.pos-top {
+        bottom: auto;
+        top: 0;
+      }
+      
+      &.pos-outside {
+        bottom: auto;
+      }
+    }
+    
+    .sl-download {
+      display: none;
+      position: absolute;
+      bottom: 5px;
+      right: 5px;
+      color: #fff;
+      z-index: 1005;
+    }
+  }
+}
+
+.sl-spinner {
+    display: none;
+    border: 5px solid #333;
+    border-radius: 40px;
+    height: 40px;
+    left: 50%;
+    margin: -20px 0 0 -20px;
+    opacity: 0;
+    position: fixed;
+    top: 50%;
+    width: 40px;
+    z-index: 1007;
+    -webkit-animation: pulsate 1s ease-out infinite;
+    -moz-animation: pulsate 1s ease-out infinite;
+    -ms-animation: pulsate 1s ease-out infinite;
+    -o-animation: pulsate 1s ease-out infinite;
+    animation: pulsate 1s ease-out infinite;
+}
+
+.sl-scrollbar-measure {
+  position: absolute;
+  top: -9999px;
+  width: 50px;
+  height: 50px;
+  overflow: scroll;
+}
+
+@-webkit-keyframes pulsate{
+    0% {
+      transform: scale(.1);
+      opacity: 0.0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1.2);
+      opacity: 0;
+    }
+}
+@keyframes pulsate {
+    0% {
+      transform: scale(.1);
+      opacity: 0.0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1.2);
+      opacity: 0;
+    }
+}
+
+@-moz-keyframes pulsate{
+    0% {
+      transform: scale(.1);
+      opacity: 0.0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1.2);
+      opacity: 0;
+    }
+}
+
+@-o-keyframes pulsate{
+    0% {
+      transform: scale(.1);
+      opacity: 0.0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1.2);
+      opacity: 0;
+    }
+}
+
+@-ms-keyframes pulsate{
+    0% {
+      transform: scale(.1);
+      opacity: 0.0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1.2);
+      opacity: 0;
+    }
+}
+
+@media all and (max-width: 480px) {
+  .sl-wrapper {
+    .sl-navigation {
+      button.sl-next,
+      button.sl-prev {
+        display: none!important;
+      }
+    }
+  }
+}

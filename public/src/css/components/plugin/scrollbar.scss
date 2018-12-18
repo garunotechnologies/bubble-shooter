@@ -1,0 +1,95 @@
+.scrollable {
+  position: relative;
+
+  &:focus {
+    outline: 0;
+  }
+  //focus
+  
+  .viewport {
+    position: relative;
+    overflow: hidden;
+    .overview {
+      position: absolute;
+      width: 100%;
+    }
+    //overview
+  }
+  //viewport
+
+  .scroll-bar {
+    display: none;
+    
+    &.vertical {
+      position: absolute;
+      right: 0;
+      height: 100%;
+      z-index: 99;
+      .thumb {
+        width: 100%;
+        min-height: 10px;
+      }
+    }
+    
+    &.horizontal {
+      position: relative;
+      width: 100%;
+      z-index: 99;
+      .thumb {
+        height: 100%;
+        min-width: 10px;
+        left: 0;
+      }
+    }
+
+    .thumb {
+      position: absolute;
+    }
+  }
+
+}
+//scrollable
+
+.scrollable {
+  //padding-right: 10px;
+  padding-bottom: 5px;
+  
+  &.default-skin {
+    .scroll-bar {
+      &.vertical {
+        width: 4px;
+      }
+      &.horizontal {
+        height: 4px;
+      }
+
+      .thumb {
+        border-radius: 3px;
+        background-color: rgba(0,0,0,0);
+        @include transition(background-color .3s ease);
+      }
+      //thumb
+
+    }
+    //scroll-bar
+    
+    &:hover {
+      .thumb {
+        background-color: rgba(0,0,0,.3);
+      }
+      //thumb
+    }
+    //hover
+  }
+  //default-skin
+}
+//scrollable
+
+.not-selectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
