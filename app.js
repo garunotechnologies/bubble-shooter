@@ -12,7 +12,7 @@ const helper = require('./helpers/date');
 let app  = require('express')();
 let http = require('http').Server(app);
 let io   = require('socket.io')(http);
-let port = process.env.port || 5000;
+let port = process.env.port || 3000;
 
 let _uuidv4 = uuidv4();
 let tableNumber = helper.getRandomInRange();
@@ -144,15 +144,15 @@ io.on('connection', function (socket) {
         if(settings.replay) {
             let idRoom = rooms.find(r => Object.keys(r.players).indexOf(socket.id) !== -1);
 
-            console.log(idRoom);
+            //console.log(idRoom);
             if (idRoom !== undefined) {
                 let delRoom = rooms.map(r => { return r.id }).indexOf(idRoom.id);
                 rooms.splice(delRoom, 1);
             }
 
             settings.replay = false;
-            console.log(settings);
-            console.log('REPLAY');
+            //console.log(settings);
+            //console.log('REPLAY');
 
         }
         //console.log('rooms ---------------');
@@ -160,8 +160,8 @@ io.on('connection', function (socket) {
     });
 
 
-    console.log('rooms ---------------');
-    console.log(rooms);
+    //console.log('rooms ---------------');
+   // console.log(rooms);
     //console.log('io ---------------');
     //console.log(socket.adapter.rooms);
 

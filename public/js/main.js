@@ -171,7 +171,7 @@ $(document).ready(function() {
             _room = room;
 
             settings.replay = false;
-            console.log(room);
+            //console.log(room);
             console.log("Мой id - " + socketId + '\n' + "Мой room id - " + room.id + '\n' + "Номер стола - " + room.tableNumber + '\n' + "Имя пользователя - " + Object.keys(room.players) + '\n' + "Кол-во пользователей - " + Object.keys(room.players).length + '\n');
 
             const $players = Object.keys(room.players);
@@ -214,12 +214,12 @@ $(document).ready(function() {
                 let $pl = me;
                 (me !== null) ? $pl = me : $pl = opponent;
 
-                console.log('-----------------1');
-                console.log($pl);
-                console.log('-----------------pl');
-                console.log(me);
-                console.log(opponent);
-                console.log('-----------------1');
+                //console.log('-----------------1');
+                //console.log($pl);
+                //console.log('-----------------pl');
+                //console.log(me);
+                //console.log(opponent);
+                //console.log('-----------------1');
 
                 if ($players.length === 1 && me != null || opponent !== null) {
 
@@ -236,7 +236,7 @@ $(document).ready(function() {
                     // console.log($pl);
                     // console.log(me);
                     // console.log(opponent);
-                    console.log('-----------------2');
+                    //console.log('-----------------2');
 
                     playerSearch.empty();
                     playerSearch.append('<div class="half player_' + me.number + '"><div class="avatarBlock"></div><div class="name">' + me.name + '</div></div>');
