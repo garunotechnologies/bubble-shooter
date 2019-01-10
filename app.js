@@ -12,7 +12,6 @@ const helper = require('./helpers/date');
 let app  = require('express')();
 let http = require('http').Server(app);
 let io   = require('socket.io')(http);
-let port = process.env.port || 3000;
 
 let _uuidv4 = uuidv4();
 let tableNumber = helper.getRandomInRange();
@@ -175,6 +174,7 @@ io.on('connection', function (socket) {
 });
 
 // view engine setup
+app.set('port', (process.env.PORT || 5000));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
@@ -202,9 +202,13 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-http.listen(port, () => {
-    console.log('Сервер слушает порт ' + port);
+http.listen(app.get('port'), (err)=> {
+    if (err) {
+        console.log("Error starting server");
+        console.log(err);
+        return
+    }
+    console.log("Сервер слушает порт : " + app.get('port'));
 });
-
 
 module.exports = app;
