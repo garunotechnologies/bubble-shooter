@@ -1,4 +1,35 @@
-extends ../layout
+div.row.cf_welcome
+    div.container
+        div.main__header
+            div.logo
+                div.title
+                    span bubble
+                    span shooter
+                div.circle.blue
+                div.circle.red
+            div.main__wrapper
+                div.formGroup
+                    label.label
+                        input#nickname.input(type="text" name="nickname" required="required" placeholder="Введите ваше имя!")
 
-block content
-    h1 Bubble shooter
+                div.buttons
+                    div.btn.btn-blue.btnSendNickname.btnStartGame Играть
+                    //div.btn.btn-red.btnSendNickname.btnShowServer Онлайн игра
+
+                div.countClients
+        //main__header
+    //container
+
+    div.bg-bubbles
+        span
+        span
+        span
+        span
+        span
+        span
+        span
+        span
+        span
+        span
+    //bg-bubbles
+//cf_welcome

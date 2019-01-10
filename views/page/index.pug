@@ -8,7 +8,7 @@ block content
           div.countClients
         div.panel
           div.tableNumber 0000
-          div.btn.btnStartGame Начать игру
+          //div.btn.btnStartGame Начать игру
           div.status
 
       div.main__content
@@ -52,14 +52,25 @@ block content
 
     div.popupEvent.popupGameOver
       div.wrapper
-        div.title УВЫ( ВЫ ПРОИГРАЛИ!
-        div.image
-          iframe(src="https://giphy.com/embed/3oriOfOHtS196yioJG" width="100%" height="100%" frameBorder="0" class="giphy-embed" allowFullScreen)
-        div.btn.btnPlayAgain Играть снова
+        div.title Увы! 😔 Вы проигралИ!
+        div.image.avatarBlock(style="background-image: url('https://media.giphy.com/media/3oriOfOHtS196yioJG/200w.webp')")
+        div.btn.btn-dark-blue.btnPlayAgain Играть снова
 
     div.popupEvent.popupGameWin
       div.wrapper
-        div.title ПОЗДРАВЛЯЕМ! ВЫ ВЫИГРАЛИ!
-        div.image
-          iframe(src="https://giphy.com/embed/xUPGcHretmclA1QgY8" width="100%" height="100%" frameBorder="0" class="giphy-embed" allowFullScreen)
-        div.btn.btnPlayAgain Играть снова
+        div.title Поздравляем! 😉 Вы выиграли!
+        div.image.avatarBlock(style="background-image: url('https://media.giphy.com/media/xUPGcHretmclA1QgY8/200w.webp')")
+        div.btn.btn-dark-blue.btnPlayAgain Играть снова
+
+    div.popupEvent.popupExitPlayer
+      div.wrapper
+        div.title Соперник вышел из игры! 😐 😒
+        div.image.avatarBlock(style="background-image: url('https://media3.giphy.com/media/26xBwYrIXjIlDjr7G/200w.webp')")
+        div.btn.btn-dark-blue.btnPlayAgain Найти игрока
+
+    div.popupEvent.popupPlayerSearch
+      div.wrapper
+        div.title Поиск игроков
+        div.playerSearch
+        //playerSearch
+        //div.btn.btnPlayAgain Играть снова

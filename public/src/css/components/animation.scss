@@ -1,11 +1,70 @@
-@include keyframes(scale) {
+@include keyframes(square) {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-700px) rotate(600deg); }
+}
+
+@include keyframes(boom) {
   0% {
-    @include transform(scale(1,1));
-  }
-  50% {
-    @include transform(scale(.9,.9));
+    @include opacity(1);
   }
   100% {
-    @include transform(scale(1,1));
+    top: -30px;
+    bottom: -30px;
+    left: -30px;
+    right: -30px;
+    width: auto;
+    @include opacity(0);
+  }
+}
+
+@include keyframes(scale) {
+  0%,100% {
+    @include transform(scale(1.1));
+  }
+  50% {
+    @include transform(scale(1));
+  }
+}
+
+@include keyframes(scaleFadeIn) {
+  0% {
+    @include transform(scale(1.2));
+  }
+  100% {
+    @include transform(scale(1));
+  }
+}
+
+@include keyframes(startGame) {
+  0% {
+    font-size: 36px;
+  }
+  20% {
+    content: '3';
+    font-size: 46px;
+  }
+  30% {
+    font-size: 36px;
+  }
+  35% {
+    content: '2';
+    font-size: 46px;
+  }
+  50% {
+    font-size: 36px;
+  }
+  55% {
+    content: '1';
+    font-size: 46px;
+  }
+  80% {
+    font-size: 36px;
+    content: 'START';
+    @include transform(rotate(0deg));
+    @include opacity(1);
+  }
+  100% {
+    font-size: 80px;
+    @include opacity(0);
   }
 }

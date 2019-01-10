@@ -5,8 +5,10 @@ html
     include state/head
   body
     div.contFluid
+      include page/welcome
+      include page/server
       block content
+
       script(src="/socket.io/socket.io.js")
-      //script(src="https://code.jquery.com/jquery-1.11.1.js")
       script(src='/js/jquery.js')
       script(src='/js/main.js')

@@ -5,7 +5,7 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     cssmin = require('gulp-minify-css'),
     imagemin = require('gulp-imagemin'),
-    pngquant = require('imagemin-pngquant'),
+    //pngquant = require('imagemin-pngquant'),
     connect = require('gulp-connect'),
     prefixer = require('gulp-autoprefixer');
 //paths
@@ -72,12 +72,12 @@ gulp.task('style:build', function () {
 
 gulp.task('images:build', function () {
     gulp.src(path.src.images)
-        .pipe(imagemin({
-            progressive: true,
-            svgoPlugins: [{removeViewBox: false}],
-            use: [pngquant()],
-            interlaced: true
-        }))
+        // .pipe(imagemin({
+        //     progressive: true,
+        //     svgoPlugins: [{removeViewBox: false}],
+        //     use: [pngquant()],
+        //     interlaced: true
+        // }))
         .pipe(gulp.dest(path.build.images))
         .pipe(connect.reload())
 });

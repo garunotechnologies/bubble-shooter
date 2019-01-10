@@ -199,7 +199,8 @@ $color_dark: #212121;
 .btn,
 .btn-blue,
 .btn-green,
-.btn-white {
+.btn-white,
+.btn-dark-blue {
   position: relative;
   @include montserratMedium;
   font-size: 14px;
@@ -317,6 +318,18 @@ $color_dark: #212121;
     //hover
   }
   //btn-blue
+
+  &.btn-dark-blue {
+    background-color: #3d4250;
+    color: #fff;
+
+    &:hover {
+      color: #ffffff;
+      background-color: #282b33;
+    }
+    //hover
+  }
+  //btn-dark-blue
 }
 //buttons
 
@@ -785,6 +798,28 @@ $color_dark: #212121;
 }
 //controlCounter
 
+.avatarBlock {
+  position: relative;
+  width: 150px;
+  height: 100%;
+  border-radius: 100px;
+  border: 5px solid #fff;
+  background-color: #fff;
+  box-shadow: 0 1px 20px 0 rgba(0, 0, 0, .3);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin: 0 auto 25px;
+  display: block;
+  overflow: hidden;
+  &:before {
+    content: '';
+    padding-top: 100%;
+    display: block;
+  }
+}
+//avatarBlock
+
 .clearfix {
   -webkit-box-flex: 1;
   -ms-flex: 1 0 auto;
@@ -792,17 +827,17 @@ $color_dark: #212121;
 }
 //clearfix
 
-@media all and (max-width: $mediaThree) {
-  .pagination {
-    ul {
-      li {
-        a, span{
-          width: 30px;
-          height: 30px;
-          padding: 8px 2px;
-        }
-      }
-    }
-  }
-  //pagination
-}
+//@media all and (max-width: $mediaThree) {
+//  .pagination {
+//    ul {
+//      li {
+//        a, span{
+//          width: 30px;
+//          height: 30px;
+//          padding: 8px 2px;
+//        }
+//      }
+//    }
+//  }
+//  //pagination
+//}

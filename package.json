@@ -4,7 +4,7 @@
   "private": true,
   "main": "app.js",
   "scripts": {
-    "start": "node ./config.js"
+    "start": "node app.js"
   },
   "engines": {
     "node": "10.14.2"
